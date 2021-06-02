@@ -82,6 +82,7 @@ public class Main {
 
             boolean isLogin = true;
             int choice = 0;
+            String newPw;
             // While the user is logged in, keep looping
             while (isLogin) {
                 // Stuff for officers to do:
@@ -92,18 +93,131 @@ public class Main {
 
                 // Stuff for flight commanders to do
                 else if (personIndex[1] < 0) {
-                    // Fcomm duties
-                    isLogin = false;
+                    choice = flightCommanderChoice(br);
+
+                    // If the flight commander chooses to see their summer training, print summer training
+                    if (choice == 2) {
+                        System.out.println("\n" + Arrays.toString(ics4u.getFlights()[personIndex[0]].getFlightCommander().getSummerTraining()));
+                    }
+
+                    // If the flight commander chooses to see their evaluations, print their evaluations
+                    if (choice == 3) {
+                        System.out.println("\n" + ics4u.getFlights()[personIndex[0]].getFlightCommander().evaluationsToString());
+                    }
+
+                    // If the flight commander chooses to change their password, run the change pw method
+                    if (choice == -2) {
+                        newPw = newPassword(br);
+                        ics4u.getFlights()[personIndex[0]].getFlightCommander().setPassword(newPw);
+                    }
+
+                    // If the flight commander wishes to view their cadets' summer training, the program prints that information
+                    if (choice == 4) {
+                        System.out.println("");
+                        for (Cadet i : ics4u.getFlights()[personIndex[0]].getCadets()) {
+                            System.out.println(i.getRank() + " " + i.getName() + ": " + Arrays.toString(i.getSummerTraining()));
+                        }
+                    }
+
+                    // If the flight commander wishes to view their cadets' evaluations, the program prints that information
+                    if (choice == 5) {
+                        System.out.println("");
+                        for (Cadet i : ics4u.getFlights()[personIndex[0]].getCadets()) {
+                            System.out.println(i.evaluationsToString() + "\n");
+                        }
+                    }
+
+                    // If the flight commander wishes to add a summer training to a cadet, the programs does that
+                    if (choice == 6) {
+
+                        // Prints the list of cadets and asks which cadet they wish to add a summer training to
+                        System.out.println(ics4u.getFlights()[personIndex[0]]);
+                        System.out.println("Which cadet would you like to add a summer training to? Enter the cadet number (Not their ID). Enter 0 to edit yourself.");
+                        
+                        // Takes the index number of the cadet and the name of the course, and adds it to that cadet
+                        int cadetSummerTrainingIndex = Integer.parseInt(br.readLine()) - 1;
+                        System.out.println("What course would you like to add?");
+                        String summerCourse = br.readLine();
+
+                        // If 0 is entered, the Flight commander is adding a course for themself
+                        if(cadetSummerTrainingIndex < 0) {
+                            ics4u.getFlights()[personIndex[0]].getFlightCommander().addSummerCourse(summerCourse);
+                        }
+
+                        // If the number entered is not 0, then a course is added for a cadet in the flight
+                        else {
+                            ics4u.getFlights()[personIndex[0]].getCadets()[cadetSummerTrainingIndex].addSummerCourse(summerCourse);
+                        }
+                    }
+
+                    // If the flight commander wishes to edit an evaluation for a cadet, the programs does that
+                    if (choice == 7) {
+
+                        // Prints the list of cadets and asks which cadet they wish to add a summer training to
+                        System.out.println(ics4u.getFlights()[personIndex[0]]);
+                        System.out.println("Which cadet would you like to edit evaluations for? Enter the cadet number (Not their ID). Enter 0 to edit yourself.");
+                        
+                        // Takes the index number of the cadet and the name of the course, and adds it to that cadet
+                        int cadetEvaluationIndex = Integer.parseInt(br.readLine()) - 1;
+
+                        // Takes the index number of the evaluation
+                        System.out.println("Which evaluation would you like to edit?");
+                        System.out.println("Enter 1 for leadership");
+                        System.out.println("Enter 2 for drill");
+                        System.out.println("Enter 3 for teaching");
+                        System.out.println("Enter 4 for aviation");
+                        int evalIndex = Integer.parseInt(br.readLine());
+
+                        // Takes a char input for the mark the cadet is receiving
+                        System.out.println("What mark is this cadet receiving?");
+                        System.out.println("Enter I for incomplete");
+                        System.out.println("Enter D for completed with difficulty");
+                        System.out.println("Enter C for completed without difficulty");
+                        System.out.println("Enter E for exceeded standard");
+                        char evalMark = Character.toLowerCase(br.readLine().charAt(0));;
+
+                        // If 0 is entered, the Flight commander is adding a course for themself
+                        if(cadetEvaluationIndex < 0) {
+                            ics4u.getFlights()[personIndex[0]].getFlightCommander().modifyEvaluations(evalMark, evalIndex);
+                        }
+
+                        // If the number entered is not 0, then a course is added for a cadet in the flight
+                        else {
+                            ics4u.getFlights()[personIndex[0]].getCadets()[cadetEvaluationIndex].modifyEvaluations(evalMark, evalIndex);
+                        }
+                    }
+
+                    // If the flight commander wishes to add a cadet to the flight, the program allows them to do so
+                    if (choice == 8) {
+                        
+                        // Asks for the cadet's name and rank
+                        System.out.println("\nEnter the name of the cadet you will be adding.");
+                        String newCadetName = br.readLine();
+                        System.out.println("Enter the rank of this cadet.");
+                        String newCadetRank = br.readLine();
+
+                        // Creates a temporary cadet object, which is added to the flight.
+                        Cadet newCadet = new Cadet(newCadetName, "pw", newCadetRank);
+                        System.out.println("This cadet has been added to your flight. By default, their password is \"pw\". They can change this once they login.");
+                        ics4u.getFlights()[personIndex[0]].addCadet(newCadet);
+                    }
+
+                    // If the flight commander wishes to remove a cadet from their flight, the program allows them to do so
+                    if (choice == 9) {
+
+                        // Prints the list of cadets and asks which cadet they wish to remove
+                        System.out.println(ics4u.getFlights()[personIndex[0]]);
+                        System.out.println("Select the index number (Not the ID) of the cadet you wish to remove.");
+
+                        // Takes input and removes the cadet from the flight
+                        int cadetRemoveIndex = Integer.parseInt(br.readLine()) - 1;
+                        ics4u.getFlights()[personIndex[0]].removeCadet(cadetRemoveIndex);
+                    }
                 }
 
                 // Stuff for cadets to do
                 else {
                     choice = cadetChoice(br);
-
-                    // If the cadet chooses to print the squadron, print the squadron
-                    if (choice == 1) {
-                        System.out.println("\n" + ics4u);
-                    }
 
                     // If the cadet chooses to see their summer training, print summer training
                     if (choice == 2) {
@@ -117,14 +231,25 @@ public class Main {
 
                     // If the cadet chooses to change their password, run the change pw method
                     if (choice == -2) {
-                        String newPw = newPassword(br);
+                        newPw = newPassword(br);
                         ics4u.getFlights()[personIndex[0]].getCadets()[personIndex[1]].setPassword(newPw);
                     }
+
+                    // 
                 }
+                
+                // If the person chooses to print the squadron, print the squadron
+                if (choice == 1) {
+                    System.out.println("\n" + ics4u);
+                }
+
                 // If the person chooses to logout, it logs them out
                 if (choice == -1) {
                     isLogin = false;
                 }
+                
+                System.out.println("Enter anything to continue");
+                br.readLine();
             }
 
             System.out.println("Goodbye " +  user.getRank() + " " + user.getName() + "!");
@@ -140,19 +265,6 @@ public class Main {
         System.out.println("Shutting down...");
         
         /*
-        *   Delete this later
-        * 
-        *   Cadet priviliges:
-        *       Print the entire squadron
-        *       See their own evaluation and summer training courses
-        *       Reset password
-        *       Logout
-        *   Flight commander priviliges:
-        *       Cadet priviliges plus:
-        *       Adding and removing cadets from their flight
-        *       Adding summer training courses to cadets in their flight
-        *       Editing evaluations for cadets in their flight
-        *       See evaluations and summer training for cadets within their flight
         *   Officer priviliges:
         *       Flight commander priviliges (but throughout the entire sqn) plus:
         *       Moving cadets between flights
@@ -161,7 +273,46 @@ public class Main {
     }
 
     /*
-    * A function that asks cadets for their choice and returns a number based on what they choose
+    * A method that asks flight commaders for their choice and returns a number based on what they choose
+    * 
+    * @param br  To use the same BufferedReader already declared in the main method
+    * 
+    * @return an integer based on the decision the flight commander made
+    */
+    private static int flightCommanderChoice(BufferedReader br) throws IOException {
+
+        // Prints out options
+        System.out.println("\nPlease enter a number to pick what you want to do from the options below:");
+        System.out.println("1. Print my squadron");
+        System.out.println("2. See my summer training courses");
+        System.out.println("3. View my evaluations");
+        System.out.println("4. See flight summer training courses");
+        System.out.println("5. View flight evaluations");
+        System.out.println("6. Add summer training courses for a cadet in my flight");
+        System.out.println("7. Edit evaluations for a cadet in my flight");
+        System.out.println("8. Adding a cadet to my flight");
+        System.out.println("9. Removing a cadet from my flight");
+        System.out.println("10. Change password");
+        System.out.println("11. Logout");
+
+        int choice = Integer.parseInt(br.readLine());
+
+        // If they choose to change password, return -2
+        if (choice == 10) {
+            return -2;
+        }
+
+        // If they choose to logout, return -1
+        else if (choice == 11) {
+            return -1;
+        }
+
+        // Otherwise, return their choice
+        return choice;
+    }
+
+    /*
+    * A method that asks cadets for their choice and returns a number based on what they choose
     * 
     * @param br  To use the same BufferedReader already declared in the main method
     * 
@@ -177,17 +328,19 @@ public class Main {
         System.out.println("4. Change password");
         System.out.println("5. Logout");
 
-        // If they choose to change password, return -2
         int choice = Integer.parseInt(br.readLine());
+
+        // If they choose to change password, return -2
         if (choice == 4) {
             return -2;
         }
 
-        // If they choose to change
+        // If they choose to logout, return -1
         else if (choice == 5) {
             return -1;
         }
 
+        // Otherwise, return their choice
         return choice;
     }
 
