@@ -77,7 +77,85 @@ public class Main {
             }
         }
 
-        // 
+        boolean isLogin = true;
+        int choice = 0;
+        // While the user is logged in, keep looping
+        while (isLogin) {
+            // Stuff for officers to do:
+            if (personIndex[0] < 0) {
+                // Officer duties (temporary)
+                isLogin = false;
+            }
+
+            // Stuff for flight commanders to do
+            else if (personIndex[1] < 0) {
+                // Fcomm duties
+                isLogin = false;
+            }
+
+            // Stuff for cadets to do
+            else {
+                choice = cadetChoice(br);
+
+                // If the cadet chooses to logout, it logs them out
+                if (choice == -1) {
+                    isLogin = false;
+                }
+            }
+
+
+        }
+
+        System.out.println("Goodbye " +  user.getRank() + " " + user.getName() + "!");
+        /*
+        *   Delete this later
+        * 
+        *   Cadet priviliges:
+        *       Print the entire squadron
+        *       See their own evaluation and summer training courses
+        *       Reset password
+        *       Logout
+        *   Flight commander priviliges:
+        *       Cadet priviliges plus:
+        *       Adding and removing cadets from their flight
+        *       Adding summer training courses to cadets in their flight
+        *       Editing evaluations for cadets in their flight
+        *       See evaluations and summer training for cadets within their flight
+        *   Officer priviliges:
+        *       Flight commander priviliges (but throughout the entire sqn) plus:
+        *       Moving cadets between flights
+        *       Adding and deleting flights
+        */
+    }
+
+    /*
+    * A function that asks cadets for their choice and returns a number based on what they choose
+    * 
+    * @param br  To use the same BufferedReader already declared in the main method
+    * 
+    * @return an integer based on the decision the cadet made
+    */
+    private static int cadetChoice(BufferedReader br) throws IOException{
+
+        // Prints out options
+        System.out.println("Please enter a number to pick what you want to do from the options below:");
+        System.out.println("1. Print my squadron");
+        System.out.println("2. See my summer training courses");
+        System.out.println("3. Change password");
+        System.out.println("4. Logout");
+
+        // If they choose to change password, return -2
+        int choice = Integer.parseInt(br.readLine());
+        if (choice == 3) {
+            return -2;
+        }
+
+        // If they choose to change
+        else if (choice == 4) {
+            return -1;
+        }
+
+        return choice;
     }
 
     /*
