@@ -67,5 +67,22 @@ public class Person {
     public String toString() {
         return Integer.toString(idNum) + " " + this.rank + " " + this.name;
     }
-    
+
+    /*
+    * Returns true or false based on whether the input password matches the person's password
+    * 
+    * @param inputPw  The input password to be macthed to the person's password
+    *
+    * @return a boolean variable that is true if the passwords matches and false otherwise
+    */
+    public boolean checkPassword(String inputPw) {
+
+        // If the password is correct, return true
+        if (inputPw.equals(this.password)) {
+            return true;
+        }
+
+        // If the password is incorrect, return false
+        return false;
+    }
 }
