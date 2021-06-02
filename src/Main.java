@@ -4,6 +4,8 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         Squadron ics4u = initialSquadron();
+        
+        System.out.println(ics4u.getChief().evaluationsToString());
     }
 
     /*
@@ -11,7 +13,7 @@ public class Main {
     * 
     * @return A squadron consisting of the students within the quadmester 4 ICS4U course
     */
-    public static Squadron initialSquadron() {
+    private static Squadron initialSquadron() {
 
         // If anyone is reading this, please note I'm not discriminating against any students by making them lower rank
         // I literally went through the class list, so if you weren't a flight commander, tough luck

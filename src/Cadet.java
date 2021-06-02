@@ -3,6 +3,7 @@ public class Cadet extends Person{
     // Delcaring variables
     private String[] summerTraining = new String[0];
     private String role;
+    private char[] evaluations;
 
     // Constructor
     public Cadet(String name, String password, String rank) {
@@ -10,9 +11,21 @@ public class Cadet extends Person{
 
         // Assigning a role for each cadet
         this.setRole("Cadet");
+
+        // By default, cadets fail all their evaluations
+        this.setEvaluations(new char[]{'i', 'i', 'i', 'i'});
+        // Evaluations are as follows: Leadership, drill, teaching, aviation
     }
 
     // Getters and setters
+    public char[] getEvaluations() {
+        return evaluations;
+    }
+
+    public void setEvaluations(char[] evaluations) {
+        this.evaluations = evaluations;
+    }
+
     public String getRole() {
         return role;
     }
@@ -52,4 +65,43 @@ public class Cadet extends Person{
         // Changing the summer training array to the temporary array
         this.setSummerTraining(tempArray);
     }
+
+    /*
+    * A method that converts the evaluation into a printable string
+    * 
+    * @return A string with a decription for each index of the evaluations array
+    */
+    public String evaluationsToString() {
+
+        // Adding relevant information to the evalString variable
+        String evalString = this.getRank() + " " + this.getName() + "'s evaluations:";
+        evalString += "\n" + "Leadership evaluation: " + evalMarkToString(this.getEvaluations()[0]);
+        evalString += "\n" + "Drill evaluation: " + evalMarkToString(this.getEvaluations()[1]);
+        evalString += "\n" + "Teaching evaluation: " + evalMarkToString(this.getEvaluations()[2]);
+        evalString += "\n" + "Aviation evaluation: " + evalMarkToString(this.getEvaluations()[3]);
+
+        // Return evalString
+        return evalString;
+    }
+
+    /*
+    * A method that converts the char into the long form of what it represents
+    *
+    * @param evalChar  The mark the cadet received as a letter
+    *
+    * @return The mark the cadet received as a word
+    */
+    private static String evalMarkToString(char evalChar) {
+        if (evalChar == 'i') {
+            return "Incomplete";
+        }
+        else if (evalChar == 'd') {
+            return "Completed with difficulty";
+        }
+        else if (evalChar == 'c') {
+            return "Completed without difficulty";
+        }
+        return "Exceeded standard";
+    }
+
 }
