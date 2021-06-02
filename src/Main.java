@@ -17,7 +17,7 @@ public class Main {
         System.out.println(officer);
         System.out.println(officer.getSalary());
 
-        Cadet person2 = new Cadet("Bob smith", "pw", "Cdt");
+        Cadet person2 = new Cadet("Bob Smith", "pw", "Cdt");
         Cadet person3 = new Cadet("Lucas Guo", "pw", "Sgt");
         Cadet person4 = new Cadet("Billy Bob", "pw", "Cpl");
         Cadet person5 = new Cadet("Vincent Guo", "pw", "LAC");
@@ -50,6 +50,7 @@ public class Main {
         System.out.println(globemaster.getChief().getRole());
 
         System.out.println(globemaster.getFlights()[0].getFlightCommander().getRole());
-        
+
+        globemaster.moveCadet(1000002, 2);
     }
 }

@@ -267,4 +267,40 @@ public class Squadron {
         return new int[]{-1, -1};
     }
 
+    /*
+    * Moves a cadet from one flight to another
+    * 
+    * @param cadetId  The ID number of the cadet that is to be moved
+    * @param flightNum  The flight number that the cadet will be moved into
+    */
+    public void moveCadet(int cadetId, int flightNum) {
+
+        // Arrays start at 0, so flightNum is decremented
+        flightNum--;
+        
+        // Seeing if the ID exists and loading the relevant information into a 2D array
+        int[] cadetIndex = this.findID(cadetId);
+
+        // If both numbers in the cadet index is greater than or equal to 0, that means that this cadet can be moved
+        if (cadetIndex[0] >= 0 && cadetIndex[1] >= 0) {
+            
+            // Creates a temporary cadet object to store information about cadet being removed
+            Cadet tempCadet = this.getFlights()[cadetIndex[0]].getCadets()[cadetIndex[1]];
+
+            // Removes the cadet from their current flight
+            this.flights[cadetIndex[0]].removeCadet(cadetIndex[1]);
+
+            // Adds the cadet into their new flight
+            this.flights[flightNum].addCadet(tempCadet);
+
+            // Prints what has happened
+            System.out.println(tempCadet.getRank() + " " + tempCadet.getName() + " has been moved to " + this.getFlights()[flightNum].getName() + " flight.");
+        }
+
+        // If both numbers are not >= 0, it means the person is either a flight commander, the chief, or officer, or does not exist
+        else {
+            System.out.println("The ID belongs to a person who is either a flight commander, the chief, or officer, or does not exist.");
+            System.out.println("The move cannot be completed.");
+        }
+    }
 }
