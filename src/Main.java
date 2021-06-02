@@ -35,10 +35,12 @@ public class Main {
 
         Squadron globemaster = new Squadron(8, "Globemaster", new Flight[]{flight}, chief, new Officer[]{officer2}, officer);
         flight2.addCadet(person4);
-        globemaster.removeOfficer(0);
+        globemaster.addOfficer(new Officer("Alexander Leung", "pw", "CI", "Officer", 25000));
         globemaster.addFlight(flight2);
-        globemaster.removeFlight(0);
-        globemaster.removeFlight(0);
         System.out.println("\n \n" + globemaster);
+
+        System.out.println(flight.findID(1000003));
+
+        System.out.println(Arrays.toString(globemaster.findID(1000011)));
     }
 }

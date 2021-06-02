@@ -80,13 +80,13 @@ public class Squadron {
         toPrint += "\n";
         toPrint += "\n" + "Squadron staff";
         for (int i = 0; i < officers.length; i++) {
-            toPrint += "\n" + "Officer " + Integer.toString(i + 1) + ": " + officers[i].toString();
+            toPrint += "\n" + "Officer #" + Integer.toString(i + 1) + ": " + officers[i].toString();
         }
 
         // Adding the flights to the string
         for (int i = 0; i < flights.length; i++) {
             toPrint += "\n";
-            toPrint += "\n" + flights[i].getName() + " flight";
+            toPrint += "\n" + "Flight #" + Integer.toString(i + 1) + ": " + flights[i].getName() + " flight";
             toPrint += "\n" + flights[i].toString();
         }
 
@@ -196,4 +196,53 @@ public class Squadron {
         this.setOfficers(tempArray);
     }
     
+    /*
+    * Does a linear search to finds the indices of the cadet/officer who has a given ID number
+    *
+    * @param idFind  The ID number to find
+    *
+    * @return The indicies of the cadet/officer with the given ID. The first number represents the flight index, and the second number represents the index of the cadet in the flight
+    * If the flight commander is the cadet with the ID number, the second number will be -2
+    * If an officer (not the CO) is the person with the ID number, the first number will be -2
+    * If the chief is the person with the ID number, the first number will be -3
+    * If the CO is the person with the ID number, the first number will be -4
+    * If no one is found, it will return [-1, -1]
+    */
+    public int[] findID(int idFind) {
+
+        // If the CO has that ID, return [-4, 0]
+        if (idFind == commandingOfficer.getIdNum()) {
+            return new int[]{-4, 0};
+        }
+
+        // If the chief has that ID, return [-3, 0]
+        if (idFind == chief.getIdNum()) {
+            return new int[]{-3, 0};
+        }
+
+        // Iterate through the officer array
+        for (int i = 0; i < this.officers.length; i++) {
+            if (officers[i].getIdNum() == idFind) {
+                return new int[]{-2, i};
+            }
+        }
+
+        // Iterate through the flights
+        for (int i = 0; i < this.flights.length; i++) {
+            // Setting an integer variable to the index of the ID found within a flight
+            int cadetIndex = flights[i].findID(idFind);
+            
+            // If the index is -1, go back to the beginning of the loop
+            if (cadetIndex == -1) {
+                continue;
+            } else { // Redundant else to be safe
+                // Return [index of the flight in the squadron, index of the cadet within that flight]
+                return new int[]{i, cadetIndex};
+            }
+        }
+
+        // If no one has that ID, return [-1, -1]
+        return new int[]{-1, -1};
+    }
+
 }

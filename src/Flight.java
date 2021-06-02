@@ -44,7 +44,7 @@ public class Flight {
 
         // Adding the individual cadets to the toString
         for (int i = 0; i < cadets.length; i++) {
-            toPrint += "\n" + "Cadet " + Integer.toString(i + 1) + ": " + cadets[i].toString();
+            toPrint += "\n" + "Cadet #" + Integer.toString(i + 1) + ": " + cadets[i].toString();
         }
 
         // Returning the string
@@ -101,5 +101,30 @@ public class Flight {
         // Setting the cadets array to the temporary array
         this.setCadets(tempArray);
     }
-    
+
+    /*
+    * Does a linear search to find the index number of the cadet with that ID number
+    * 
+    * @param idFind  The ID number in question to find
+    *
+    * @return The index of the ID number. If no such cadet is found, return -1. If the index is of the flight commander, return -2
+    */
+    public int findID(int idFind) {
+        
+        // If the ID is that of the flight commander, return -2
+        if (idFind == flightCommander.getIdNum()) {
+            return -2;
+        }
+
+        // Iterate through each ID of the cadet array. If one is found, return the index number
+        for (int i = 0; i < this.cadets.length; i++) {
+            if (cadets[i].getIdNum() == idFind) {
+                return i;
+            }
+        }
+
+        // Return -1 if there is no match
+        return -1;
+    }
+
 }

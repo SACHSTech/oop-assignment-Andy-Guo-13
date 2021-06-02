@@ -62,10 +62,10 @@ public class Person {
 
         this.name = name;
     }
-    
+
     // ToString method
     public String toString() {
         return Integer.toString(idNum) + " " + this.rank + " " + this.name;
     }
-
+    
 }
