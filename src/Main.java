@@ -22,7 +22,7 @@ public class Main {
         Cadet person4 = new Cadet("Billy Bob", "pw", "Cpl", "Cadet");
         Cadet person5 = new Cadet("Vincent Guo", "pw", "LAC", "Cadet");
 
-        Flight flight = new Flight(new Cadet[]{person2, person3, person4}, person);
+        Flight flight = new Flight("Falcon", new Cadet[]{person2, person3, person4}, person);
         flight.addCadet(person5);
         flight.removeCadet(2);
         System.out.println(flight);

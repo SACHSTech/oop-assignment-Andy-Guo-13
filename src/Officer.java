@@ -7,8 +7,8 @@ public class Officer extends Person {
     // Constructors
     public Officer(String name, String password, String rank, String role, int salary) {
         super(name, password, rank);
-        this.role = role;
-        this.salary = salary;
+        this.setRole(role);
+        this.setSalary(salary);
     }
 
     // Getters and setters

@@ -3,13 +3,23 @@ public class Flight {
     // Declaring variables
     private Cadet[] cadets;
     private Cadet flightCommander;
+    private String name;
 
-    public Flight(Cadet[] cadets, Cadet flightCommander) {
+    public Flight(String name, Cadet[] cadets, Cadet flightCommander) {
         this.setCadets(cadets);
         this.setFlightCommander(flightCommander);
+        this.setName(name);
     }
 
     // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Cadet getFlightCommander() {
         return flightCommander;
     }
@@ -30,7 +40,7 @@ public class Flight {
     public String toString() {
 
         // Adding the flight commander toString to the string
-        String toPrint = "Flight Commander: " + flightCommander.toString();
+        String toPrint = this.name + " flight Commander: " + flightCommander.toString();
 
         // Adding the individual cadets to the toString
         for (int i = 0; i < cadets.length; i++) {
