@@ -23,90 +23,122 @@ public class Main {
         System.out.println("You can change your password later, but not your ID number");
         System.out.println("Enter anything to continue:");
         br.readLine();
-        
-        // Username and password system
 
-        int[] personIndex = new int[]{-1, -1};
-
-        // Until a valid ID is entered, keep asking the user for an ID number
-        while (personIndex[0] == -1) {
-            System.out.print("Enter your ID number: ");
-            int idInput = Integer.parseInt(br.readLine());
-
-            // Figuring out who this ID belongs to
-            personIndex = ics4u.findID(idInput);
+        // Keeps looping until the user stops the program
+        boolean isProgramRunning = true;
+        while (isProgramRunning) {
             
-            if (personIndex[0] == -1) {
-                System.out.println("ID does not exist. Please try again.");
-            }
-        }
+            // Username and password system
+            int[] personIndex = new int[]{-1, -1};
 
-        // Given the ID, user object is loaded with the person with that ID
-        Person user;
-        if (personIndex[0] == -4) {
-            user = ics4u.getCommandingOfficer();
-        }
+            // Until a valid ID is entered, keep asking the user for an ID number
+            while (personIndex[0] == -1) {
+                System.out.print("Enter your ID number: ");
+                int idInput = Integer.parseInt(br.readLine());
 
-        else if (personIndex[0] == -3) {
-            user = ics4u.getChief();
-        }
-
-        else if (personIndex[0] == -2) {
-            user = ics4u.getOfficers()[personIndex[1]];
-        }
-
-        else if (personIndex[1] == -2) {
-            user = ics4u.getFlights()[personIndex[0]].getFlightCommander();
-        }
-
-        else {
-            user = ics4u.getFlights()[personIndex[0]].getCadets()[personIndex[1]];
-        }
-
-        // Greets the user with their rank and their name
-        System.out.println("Welcome " + user.getRank() + " " + user.getName() + "!");
-
-        // Asks the user for their password, and keeps looping until their password is correct
-        boolean isPwCorrect = false;
-        while (!isPwCorrect) {
-            System.out.print("Enter your password: ");
-            String pwInput = br.readLine();
-            isPwCorrect = user.checkPassword(pwInput);
-            if (!isPwCorrect) {
-                System.out.println("Incorrect password. Try again.");
-            }
-        }
-
-        boolean isLogin = true;
-        int choice = 0;
-        // While the user is logged in, keep looping
-        while (isLogin) {
-            // Stuff for officers to do:
-            if (personIndex[0] < 0) {
-                // Officer duties (temporary)
-                isLogin = false;
+                // Figuring out who this ID belongs to
+                personIndex = ics4u.findID(idInput);
+                
+                if (personIndex[0] == -1) {
+                    System.out.println("ID does not exist. Please try again.");
+                }
             }
 
-            // Stuff for flight commanders to do
-            else if (personIndex[1] < 0) {
-                // Fcomm duties
-                isLogin = false;
+            // Given the ID, user object is loaded with the person with that ID
+            Person user;
+            if (personIndex[0] == -4) {
+                user = ics4u.getCommandingOfficer();
             }
 
-            // Stuff for cadets to do
+            else if (personIndex[0] == -3) {
+                user = ics4u.getChief();
+            }
+
+            else if (personIndex[0] == -2) {
+                user = ics4u.getOfficers()[personIndex[1]];
+            }
+
+            else if (personIndex[1] == -2) {
+                user = ics4u.getFlights()[personIndex[0]].getFlightCommander();
+            }
+
             else {
-                choice = cadetChoice(br);
+                user = ics4u.getFlights()[personIndex[0]].getCadets()[personIndex[1]];
+            }
 
-                // If the cadet chooses to logout, it logs them out
+            // Greets the user with their rank and their name
+            System.out.println("Welcome " + user.getRank() + " " + user.getName() + "!");
+
+            // Asks the user for their password, and keeps looping until their password is correct
+            boolean isPwCorrect = false;
+            while (!isPwCorrect) {
+                System.out.print("Enter your password: ");
+                String pwInput = br.readLine();
+                isPwCorrect = user.checkPassword(pwInput);
+                if (!isPwCorrect) {
+                    System.out.println("Incorrect password. Try again.");
+                }
+            }
+
+            boolean isLogin = true;
+            int choice = 0;
+            // While the user is logged in, keep looping
+            while (isLogin) {
+                // Stuff for officers to do:
+                if (personIndex[0] < 0) {
+                    // Officer duties (temporary)
+                    isLogin = false;
+                }
+
+                // Stuff for flight commanders to do
+                else if (personIndex[1] < 0) {
+                    // Fcomm duties
+                    isLogin = false;
+                }
+
+                // Stuff for cadets to do
+                else {
+                    choice = cadetChoice(br);
+
+                    // If the cadet chooses to print the squadron, print the squadron
+                    if (choice == 1) {
+                        System.out.println("\n" + ics4u);
+                    }
+
+                    // If the cadet chooses to see their summer training, print summer training
+                    if (choice == 2) {
+                        System.out.println("\n" + Arrays.toString(ics4u.getFlights()[personIndex[0]].getCadets()[personIndex[1]].getSummerTraining()));
+                    }
+
+                    // If the cadet chooses to see their evaluations, print their evaluations
+                    if (choice == 3) {
+                        System.out.println("\n" + ics4u.getFlights()[personIndex[0]].getCadets()[personIndex[1]].evaluationsToString());
+                    }
+
+                    // If the cadet chooses to change their password, run the change pw method
+                    if (choice == -2) {
+                        String newPw = newPassword(br);
+                        ics4u.getFlights()[personIndex[0]].getCadets()[personIndex[1]].setPassword(newPw);
+                    }
+                }
+                // If the person chooses to logout, it logs them out
                 if (choice == -1) {
                     isLogin = false;
                 }
             }
 
+            System.out.println("Goodbye " +  user.getRank() + " " + user.getName() + "!");
+            System.out.println("\nDo you want to keep running the program? Y or N");
+            String yesOrNo = br.readLine();
 
+            // If the user choses to stop the program, it exits the loop
+            if (yesOrNo.equalsIgnoreCase("n")) {
+                isProgramRunning = false;
+            }
         }
 
-        System.out.println("Goodbye " +  user.getRank() + " " + user.getName() + "!");
+        System.out.println("Shutting down...");
+        
         /*
         *   Delete this later
         * 
@@ -138,20 +170,21 @@ public class Main {
     private static int cadetChoice(BufferedReader br) throws IOException{
 
         // Prints out options
-        System.out.println("Please enter a number to pick what you want to do from the options below:");
+        System.out.println("\nPlease enter a number to pick what you want to do from the options below:");
         System.out.println("1. Print my squadron");
         System.out.println("2. See my summer training courses");
-        System.out.println("3. Change password");
-        System.out.println("4. Logout");
+        System.out.println("3. View my evaluations");
+        System.out.println("4. Change password");
+        System.out.println("5. Logout");
 
         // If they choose to change password, return -2
         int choice = Integer.parseInt(br.readLine());
-        if (choice == 3) {
+        if (choice == 4) {
             return -2;
         }
 
         // If they choose to change
-        else if (choice == 4) {
+        else if (choice == 5) {
             return -1;
         }
 
@@ -207,4 +240,33 @@ public class Main {
         return ics4u;
     }
 
+    /*
+    * A method that asks the user for a new password, and stops looping once the old and new password match
+    *
+    * @param br  To use the same BufferedReader already declared in the main method
+    * @return the new password
+    */
+    private static String newPassword(BufferedReader br) throws IOException{
+        String newPw = "b";
+        String newPwConfirm = "a";
+
+        // While the new password and confirmation password don't match, keep looping
+        while (!newPw.equals(newPwConfirm)) {
+
+            // Asks the user for their new password and confirmation password
+            System.out.print("\n" + "Enter your new password: ");
+            newPw = br.readLine();
+            System.out.print("Confirm your new password: ");
+            newPwConfirm = br.readLine();
+
+            // If the new password and confirmation password don't match, tell the user
+            if (!newPw.equals(newPwConfirm)) {
+                System.out.println("Your passwords don't match. Try again.");
+            }
+        }
+
+        // Tell the user their password has been chnaged, and return the new password
+        System.out.println("Password changed!");
+        return newPw;
+    }
 }
