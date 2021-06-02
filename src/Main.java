@@ -4,7 +4,9 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         Squadron ics4u = initialSquadron();
-        
+
+        ics4u.getChief().modifyEvaluations('e', 1);
+
         System.out.println(ics4u.getChief().evaluationsToString());
     }
 

@@ -75,10 +75,10 @@ public class Cadet extends Person{
 
         // Adding relevant information to the evalString variable
         String evalString = this.getRank() + " " + this.getName() + "'s evaluations:";
-        evalString += "\n" + "Leadership evaluation: " + evalMarkToString(this.getEvaluations()[0]);
-        evalString += "\n" + "Drill evaluation: " + evalMarkToString(this.getEvaluations()[1]);
-        evalString += "\n" + "Teaching evaluation: " + evalMarkToString(this.getEvaluations()[2]);
-        evalString += "\n" + "Aviation evaluation: " + evalMarkToString(this.getEvaluations()[3]);
+        evalString += "\n" + "1. Leadership evaluation: " + evalMarkToString(this.getEvaluations()[0]);
+        evalString += "\n" + "2. Drill evaluation: " + evalMarkToString(this.getEvaluations()[1]);
+        evalString += "\n" + "3. Teaching evaluation: " + evalMarkToString(this.getEvaluations()[2]);
+        evalString += "\n" + "4. Aviation evaluation: " + evalMarkToString(this.getEvaluations()[3]);
 
         // Return evalString
         return evalString;
@@ -104,4 +104,18 @@ public class Cadet extends Person{
         return "Exceeded standard";
     }
 
+    /*
+    * A method to modify certain evaluations
+    * 
+    * @param evalMark  The mark that is being changed to
+    * @param index  The index of the mark that is being changed
+    */
+    public void modifyEvaluations(char evalMark, int index) {
+
+        // Decrement index because arrays start at 0
+        index--;
+
+        // Changing that index in evaluations array
+        this.evaluations[index] = evalMark;
+    }
 }
