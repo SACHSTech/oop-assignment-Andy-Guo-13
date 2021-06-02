@@ -3,57 +3,55 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        Squadron ics4u = initialSquadron();
+    }
 
-        Cadet person = new Cadet("Andy Guo", "password", "WO2");
-        System.out.println(person);
-        System.out.println(person.getEmail());
-        System.out.println(person.getPassword());
+    /*
+    * A method that creates a squadron in order to demonstrate the ability of the code
+    * 
+    * @return A squadron consisting of the students within the quadmester 4 ICS4U course
+    */
+    public static Squadron initialSquadron() {
 
-        person.addSummerCourse("Survival instructor");
-        System.out.println(Arrays.toString(person.getSummerTraining()));
+        // If anyone is reading this, please note I'm not discriminating against any students by making them lower rank
+        // I literally went through the class list, so if you weren't a flight commander, tough luck
 
-        Officer officer = new Officer("Paul Yu", "password", "Maj", 50000);
-        System.out.println(officer);
-        System.out.println(officer.getSalary());
+        // Flight for last names from A to G
+        Cadet amaan = new Cadet("Amaan Ali", "pw", "Fsgt");
+        Cadet chloe = new Cadet("Chloe Cheung", "pw", "Cpl");
+        Cadet jackson = new Cadet("Jackson Cheung", "pw", "Cpl");
+        Cadet ashley = new Cadet("Ashley Fong", "pw", "Cdt");
+        Cadet natalia = new Cadet("Natalia Garcia-Arias", "pw", "Cdt");
+        Flight aToG = new Flight("A To G", new Cadet[]{chloe, jackson, ashley, natalia}, amaan);
 
-        Cadet person2 = new Cadet("Bob Smith", "pw", "Cdt");
-        Cadet person3 = new Cadet("Lucas Guo", "pw", "Sgt");
-        Cadet person4 = new Cadet("Billy Bob", "pw", "Cpl");
-        Cadet person5 = new Cadet("Vincent Guo", "pw", "LAC");
+        // Flight for last names from H to S
+        Cadet justin = new Cadet("Justin Ho Shue", "pw", "Fsgt");
+        Cadet douglas = new Cadet("Douglas Lau", "pw", "Cpl");
+        Cadet tiffany = new Cadet("Tiffany Lee", "pw", "Cpl");
+        Cadet lucy = new Cadet("Lucy Mao", "pw", "Cdt");
+        Cadet ziming = new Cadet("Ziming Qu", "pw", "Cdt");
+        Cadet alyanna = new Cadet("Alyanna Santos", "pw", "Cdt");
+        Flight hToS = new Flight("H To S", new Cadet[]{douglas, tiffany, lucy, ziming, alyanna}, justin);
 
-        Flight flight = new Flight("Falcon", new Cadet[]{person2, person3, person4}, person);
-        flight.addCadet(person5);
-        flight.removeCadet(2);
+        // Flight for last names S to Y
+        Cadet xinan = new Cadet("Xinan Shan", "pw", "Fsgt");
+        Cadet joshua = new Cadet("Joshua Shuttleworth", "pw", "Cpl");
+        Cadet benjamin = new Cadet("Benjamin Teh", "pw", "Cpl");
+        Cadet paul = new Cadet("Paul Tran", "pw", "Cdt");
+        Cadet adrian = new Cadet("Adrian Wong", "pw", "Cdt");
+        Cadet anson = new Cadet("Anson Yang", "pw", "Cdt");
+        Flight sToY = new Flight("S to Y", new Cadet[]{joshua, benjamin, paul, adrian, anson}, xinan);
 
-        Cadet fcomm = new Cadet("Bobby Joe", "pw", "FSgt");
-        Cadet cadet = new Cadet("Bill Smith", "pw", "Cdt");
-        Flight flight2 = new Flight("Polaris", new Cadet[]{cadet}, fcomm);
+        // Officers
+        Officer fabroa = new Officer("Eric Fabroa", "pw", "LCol", 150000);
+        Officer jeffrey = new Officer("Jeffrey Lin", "pw", "Capt", 75000);
+        Officer sam = new Officer("Sam Liu", "pw", "Lt", 50000);
 
-        Cadet chief = new Cadet("Hanshu Pu", "pw", "WO1");
-        Officer officer2 = new Officer("Gilda Kato", "pw", "CI", 25000);
+        // Chief
+        Cadet andy = new Cadet("Andy Guo", "pw", "WO1");
 
-        Squadron globemaster = new Squadron(8, "Globemaster", new Flight[]{flight}, chief, new Officer[]{officer2}, officer);
-        flight2.addCadet(person4);
-        globemaster.addOfficer(new Officer("Alexander Leung", "pw", "CI", 25000));
-        globemaster.addFlight(flight2);
-        System.out.println("\n \n" + globemaster);
-
-        System.out.println(flight.findID(1000003));
-
-        System.out.println(Arrays.toString(globemaster.findID(1000011)));
-
-        System.out.println(globemaster.getCommandingOfficer().getEmail());
-        System.out.println(globemaster.getCommandingOfficer().getRole());
-
-        System.out.println(globemaster.getChief().getEmail());
-        System.out.println(globemaster.getChief().getRole());
-
-        System.out.println(globemaster.getFlights()[0].getFlightCommander().getRole());
-
-        globemaster.moveCadet(1000007, 1);
-        //globemaster.moveCadet(1000004, 1);
-        globemaster.removeFlight(2);
-        //System.out.println(globemaster);
+        // Creating the squadron
+        Squadron ics4u = new Squadron(21, "ICS4U", new Flight[]{aToG, hToS, sToY}, andy, new Officer[]{jeffrey, sam}, fabroa);
+        return ics4u;
     }
 }
