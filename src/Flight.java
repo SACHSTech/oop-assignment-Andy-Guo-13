@@ -101,4 +101,5 @@ public class Flight {
         // Setting the cadets array to the temporary array
         this.setCadets(tempArray);
     }
+    
 }

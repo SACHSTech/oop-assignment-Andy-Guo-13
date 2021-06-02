@@ -25,6 +25,20 @@ public class Main {
         Flight flight = new Flight("Falcon", new Cadet[]{person2, person3, person4}, person);
         flight.addCadet(person5);
         flight.removeCadet(2);
-        System.out.println(flight);
+
+        Cadet fcomm = new Cadet("Bobby Joe", "pw", "FSgt", "Flight commander");
+        Cadet cadet = new Cadet("Bill Smith", "pw", "Cdt", "Cadet");
+        Flight flight2 = new Flight("Polaris", new Cadet[]{cadet}, fcomm);
+
+        Cadet chief = new Cadet("Hanshu Pu", "pw", "WO1", "Chief");
+        Officer officer2 = new Officer("Gilda Kato", "pw", "CI", "Officer", 25000);
+
+        Squadron globemaster = new Squadron(8, "Globemaster", new Flight[]{flight}, chief, new Officer[]{officer2}, officer);
+        flight2.addCadet(person4);
+        globemaster.removeOfficer(0);
+        globemaster.addFlight(flight2);
+        globemaster.removeFlight(0);
+        globemaster.removeFlight(0);
+        System.out.println("\n \n" + globemaster);
     }
 }
