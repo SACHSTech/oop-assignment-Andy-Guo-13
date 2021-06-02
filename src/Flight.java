@@ -7,8 +7,11 @@ public class Flight {
 
     public Flight(String name, Cadet[] cadets, Cadet flightCommander) {
         this.setCadets(cadets);
-        this.setFlightCommander(flightCommander);
+        this.flightCommander = flightCommander;
         this.setName(name);
+
+        // Setting the flight commander's role
+        this.flightCommander.setRole("Flight Commander");
     }
 
     // Getters and setters
@@ -24,8 +27,13 @@ public class Flight {
         return flightCommander;
     }
 
+    // Made modifications
     public void setFlightCommander(Cadet flightCommander) {
+        this.flightCommander.setRole("Cadet");
+        
         this.flightCommander = flightCommander;
+
+        this.flightCommander.setRole("Flight Commander");
     }
 
     public Cadet[] getCadets() {

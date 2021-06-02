@@ -16,8 +16,11 @@ public class Person {
         this.setPassword(password);
         this.setRank(rank);
         this.idNum = idIncrement;
+
         // Increments the ID number by 1 to ensure no one has the same ID
         idIncrement++;
+
+        // Assigning an email to each cadet (idnumber@cadetmail.com)
         this.setEmail(Integer.toString(idNum) + "@cadetmail.com");
     }
 

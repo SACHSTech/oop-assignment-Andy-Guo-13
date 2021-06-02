@@ -5,10 +5,12 @@ public class Officer extends Person {
     private int salary;
 
     // Constructors
-    public Officer(String name, String password, String rank, String role, int salary) {
+    public Officer(String name, String password, String rank, int salary) {
         super(name, password, rank);
-        this.setRole(role);
         this.setSalary(salary);
+
+        // Assigning a special role for officers
+        this.setRole("Officer");
     }
 
     // Getters and setters

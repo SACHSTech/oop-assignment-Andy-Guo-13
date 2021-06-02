@@ -13,9 +13,17 @@ public class Squadron {
         this.setSqnNum(sqnNum);
         this.setSqnName(sqnName);
         this.setFlights(flights);
-        this.setChief(chief);
+        this.chief = chief;
         this.setOfficers(officers);
-        this.setCommandingOfficer(commandingOfficer);
+        this.commandingOfficer = commandingOfficer;
+
+        // Changing the role for the chief and CO respectively
+        this.chief.setRole("Chielf Warrant Officer");
+        this.commandingOfficer.setRole("Commanding Officer");
+
+        // Giving the chief and CO special emails (role.squadronname@cadetmail.com)
+        this.chief.setEmail("cwo." + Integer.toString(this.sqnNum) + this.sqnName.toLowerCase() + "@cadetmail.com");
+        this.commandingOfficer.setEmail("co." + Integer.toString(this.sqnNum) + this.sqnName.toLowerCase() + "@cadetmail.com");
     }
 
     // Getters and setters
@@ -39,8 +47,15 @@ public class Squadron {
         return commandingOfficer;
     }
 
+    // Made modifications
     public void setCommandingOfficer(Officer commandingOfficer) {
+        this.commandingOfficer.setEmail(Integer.toString(this.commandingOfficer.getIdNum()) + "@cadetmail.com");
+        this.commandingOfficer.setRole("Officer");
+
         this.commandingOfficer = commandingOfficer;
+
+        this.commandingOfficer.setEmail("co." + Integer.toString(this.sqnNum) + this.sqnName.toLowerCase() + "@cadetmail.com");
+        this.commandingOfficer.setRole("Commanding Officer");
     }
 
     public Officer[] getOfficers() {
@@ -55,8 +70,15 @@ public class Squadron {
         return chief;
     }
 
+    // Made modifications
     public void setChief(Cadet chief) {
+        this.chief.setEmail(Integer.toString(this.chief.getIdNum()) + "@cadetmail.com");
+        this.chief.setRole("Cadet");
+
         this.chief = chief;
+
+        this.chief.setEmail("cwo." + Integer.toString(this.sqnNum) + this.sqnName.toLowerCase() + "@cadetmail.com");
+        this.chief.setRole("Commanding Officer");
     }
 
     public Flight[] getFlights() {

@@ -5,9 +5,11 @@ public class Cadet extends Person{
     private String role;
 
     // Constructor
-    public Cadet(String name, String password, String rank, String role) {
+    public Cadet(String name, String password, String rank) {
         super(name, password, rank);
-        this.setRole(role);
+
+        // Assigning a role for each cadet
+        this.setRole("Cadet");
     }
 
     // Getters and setters
