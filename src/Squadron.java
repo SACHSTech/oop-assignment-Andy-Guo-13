@@ -142,29 +142,41 @@ public class Squadron {
 
     // Removing a flight from the squadron
     public void removeFlight(int index) {
-        // Taking the length of the flight array
-        int length = this.flights.length;
 
-        // Declaring a string array 1 shorter than the flight array
-        Flight[] tempArray = new Flight[length - 1];
+        // Arrays start from 0, so decement index
+        index--;
 
-        // Declaring an adder variable which will be set to 1 once the index is reached
-        int adder = 0;
+        // If the flight is not empty, don't allow the user to remove that flight
+        if (this.flights[index].getCadets().length != 0) {
+            System.out.println("There are still cadets in this flight. This action can only be completed if the flight is empty");
+        }
+        
+        // Otherwise, the flight is empty, and so the flight can be removed
+        else {
+            // Taking the length of the flight array
+            int length = this.flights.length;
 
-        // Looping for each index of the temp array
-        for (int i = 0; i < length - 1; i++) {
+            // Declaring a string array 1 shorter than the flight array
+            Flight[] tempArray = new Flight[length - 1];
 
-            // If the index of the flight is reached, adder is set to 1
-            if (i == index) {
-                adder++;
+            // Declaring an adder variable which will be set to 1 once the index is reached
+            int adder = 0;
+
+            // Looping for each index of the temp array
+            for (int i = 0; i < length - 1; i++) {
+
+                // If the index of the flight is reached, adder is set to 1
+                if (i == index) {
+                    adder++;
+                }
+
+                // Loading flight into the temp array. If the index is reached, the index of the cadet array is incremented by 1
+                tempArray[i] = this.flights[i + adder];
             }
 
-            // Loading flight into the temp array. If the index is reached, the index of the cadet array is incremented by 1
-            tempArray[i] = this.flights[i + adder];
+            // Setting the flight array to the temporary array
+            this.setFlights(tempArray);
         }
-
-        // Setting the flight array to the temporary array
-        this.setFlights(tempArray);
     }
     
     // Adding an officer to the squadron

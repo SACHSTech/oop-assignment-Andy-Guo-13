@@ -51,6 +51,9 @@ public class Main {
 
         System.out.println(globemaster.getFlights()[0].getFlightCommander().getRole());
 
-        globemaster.moveCadet(1000002, 2);
+        globemaster.moveCadet(1000007, 1);
+        //globemaster.moveCadet(1000004, 1);
+        globemaster.removeFlight(2);
+        //System.out.println(globemaster);
     }
 }
