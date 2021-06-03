@@ -17,7 +17,13 @@ public class Person {
     // For assigning identification numbers
     private static int idIncrement = 1000000;
 
-    // Constructor
+    /*
+    * Constructor - creates new instance of a Flight object
+    * 
+    * @param name  The name of the person
+    * @param password  The password of this person
+    * @param rank  The rank of the person
+    */
     public Person(String name, String password, String rank) {
         this.setName(name);
         this.setPassword(password);

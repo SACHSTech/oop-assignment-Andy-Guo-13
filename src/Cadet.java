@@ -12,7 +12,13 @@ public class Cadet extends Person{
     private String role;
     private char[] evaluations;
 
-    // Constructor
+    /*
+    * Constructor - creates new instance of a Flight object
+    * 
+    * @param name  The name of the cadet
+    * @param password  The password of this cadet
+    * @param rank  The rank of the cadet
+    */
     public Cadet(String name, String password, String rank) {
         super(name, password, rank);
 

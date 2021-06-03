@@ -11,6 +11,13 @@ public class Flight {
     private Cadet flightCommander;
     private String name;
 
+    /*
+    * Constructor - creates new instance of a Flight object
+    * 
+    * @param name  The name of the flight
+    * @param cadets[]  An array containing all the cadets
+    * @param flightCommander  An officer object representing the flight commander of the flight
+    */
     public Flight(String name, Cadet[] cadets, Cadet flightCommander) {
         this.setCadets(cadets);
         this.flightCommander = flightCommander;

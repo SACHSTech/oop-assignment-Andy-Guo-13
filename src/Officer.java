@@ -10,7 +10,14 @@ public class Officer extends Person {
     private String role;
     private int salary;
 
-    // Constructors
+    /*
+    * Constructor - creates new instance of a Flight object
+    * 
+    * @param name  The name of the cadet
+    * @param password  The password of this cadet
+    * @param rank  The rank of the cadet
+    * @param salary  The salary of the officer
+    */
     public Officer(String name, String password, String rank, int salary) {
         super(name, password, rank);
         this.setSalary(salary);
