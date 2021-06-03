@@ -128,7 +128,11 @@ public class Person {
         this.name = name;
     }
 
-    // ToString method
+    /*
+    * String representation of the person object that can be used to print
+    *
+    * @return a string representation of the person object
+    */
     public String toString() {
         return Integer.toString(idNum) + " " + this.rank + " " + this.name;
     }

@@ -165,8 +165,11 @@ public class Squadron {
         this.flights = flights;
     }
 
-
-    // ToString method
+    /*
+    * String representation of the entire squadron that can be used to print
+    *
+    * @return a string representation of the squadron object
+    */
     public String toString() {
         // Adding the name of the squadron to the string
         String toPrint = Integer.toString(this.sqnNum) + " " + this.sqnName;

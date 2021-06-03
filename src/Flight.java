@@ -87,7 +87,11 @@ public class Flight {
         this.cadets = cadets;
     }
 
-    // To string method
+    /*
+    * String representation of a flight object that can be used to print
+    *
+    * @return a string representation of the flight object
+    */
     public String toString() {
 
         // Adding the flight commander toString to the string
