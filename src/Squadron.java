@@ -196,7 +196,11 @@ public class Squadron {
         return toPrint;
     }
 
-    // Adding a flight to the squadron
+    /*
+    * A method that extends the flights array by 1 and adds a flight object
+    *
+    * @param newFlight  The value to be added to flight
+    */
     public void addFlight(Flight newFlight) {
         // Taking the length of the flights array
         int length = this.flights.length;
@@ -220,7 +224,11 @@ public class Squadron {
         this.setFlights(tempArray);
     }
 
-    // Removing a flight from the squadron
+    /*
+    * A method that removes an object from the flights array
+    *
+    * @param index  The index in the array to be removed
+    */
     public void removeFlight(int index) {
 
         // Arrays start from 0, so decement index
@@ -259,7 +267,11 @@ public class Squadron {
         }
     }
     
-    // Adding an officer to the squadron
+    /*
+    * A method that extends the officers array by 1 and adds an officer object
+    *
+    * @param newOfficer  The value to be added to officers
+    */
     public void addOfficer(Officer newOfficer) {
         // Taking the length of the officers array
         int length = this.officers.length;
@@ -283,7 +295,11 @@ public class Squadron {
         this.setOfficers(tempArray);
     }
 
-    // Removing an officer from the squadron
+    /*
+    * A method that removes an object from the officers array
+    *
+    * @param index  The index in the array to be removed
+    */
     public void removeOfficer(int index) {
         // Taking the length of the officers array
         int length = this.officers.length;

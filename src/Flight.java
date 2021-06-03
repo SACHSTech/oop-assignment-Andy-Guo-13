@@ -106,7 +106,11 @@ public class Flight {
         return toPrint;
     }
 
-    // Adding a cadet to the flight
+    /*
+    * A method that extends the cadets array by 1 and adds a cadet object
+    *
+    * @param newCadet  The object to be added to cadets
+    */
     public void addCadet(Cadet newCadet) {
         // Taking the length of the cadets array
         int length = this.cadets.length;
@@ -130,7 +134,11 @@ public class Flight {
         this.setCadets(tempArray);
     }
 
-    // Removing a cadet from the flight
+    /*
+    * A method that removes an object from the cadets array
+    *
+    * @param index  The index in the array to be removed
+    */
     public void removeCadet(int index) {
         // Taking the length of the cadets array
         int length = this.cadets.length;

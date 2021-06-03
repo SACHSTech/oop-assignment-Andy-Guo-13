@@ -84,7 +84,11 @@ public class Cadet extends Person{
         this.summerTraining = summerTraining;
     }
     
-    // Adding a course for summer training
+    /*
+    * A method that extends the summerTraining array by 1 and adds a value
+    *
+    * @param course  The value to be added to summerTraining
+    */
     public void addSummerCourse(String course) {
         // Taking the length of the summer training array
         int length = this.summerTraining.length;
