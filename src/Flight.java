@@ -1,3 +1,9 @@
+/*
+* Flight class that contains an array of cadets and a flight commander
+* 
+* @author: Andy Guo
+*/
+
 public class Flight {
 
     // Declaring variables

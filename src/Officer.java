@@ -1,3 +1,9 @@
+/*
+* Officer class that extends the person class. In addition to being a person, officers have a salary and a role
+*
+* @author: Andy Guo
+*/
+
 public class Officer extends Person {
 
     // Declaring variables

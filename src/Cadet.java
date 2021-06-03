@@ -1,3 +1,10 @@
+/*
+* Cadet class that extends the person class.
+* In addition to being a person, cadets have an array of summer training and evaluations, as well has having a role
+* 
+* @author: Andy Guo
+*/
+
 public class Cadet extends Person{
 
     // Delcaring variables

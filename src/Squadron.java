@@ -1,3 +1,9 @@
+/*
+* Squadron class that contains an array of flights, array of officers, a chief and CO
+* 
+* @author: Andy Guo
+*/
+
 public class Squadron {
     
     // Declaring variables

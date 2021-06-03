@@ -1,3 +1,9 @@
+/*
+* Main class file, runs to showcase other classes
+* 
+* @author: Andy Guo
+*/
+
 import java.util.*;
 import java.io.*;
 

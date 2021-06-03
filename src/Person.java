@@ -1,3 +1,10 @@
+/*
+* Person class that is a parent class to Officer and Cadet classes.
+* Every Person has a name, ID number, password, email and rank
+* 
+* @author: Andy Guo
+*/
+
 public class Person {
 
     // Declaring variables
