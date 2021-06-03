@@ -1,3 +1,5 @@
+package chain_of_command;
+
 /*
 * Main class file, runs to showcase other classes
 * 
@@ -6,6 +8,8 @@
 
 import java.util.*;
 import java.io.*;
+
+import chain_of_command.*;
 
 public class Main {
 

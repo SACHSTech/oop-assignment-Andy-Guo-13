@@ -1,8 +1,12 @@
+package chain_of_command;
+
 /*
 * Flight class that contains an array of cadets and a flight commander
 * 
 * @author: Andy Guo
 */
+
+import chain_of_command.*;
 
 public class Flight {
 

@@ -1,8 +1,12 @@
+package chain_of_command;
+
 /*
 * Officer class that extends the person class. In addition to being a person, officers have a salary and a role
 *
 * @author: Andy Guo
 */
+
+import chain_of_command.*;
 
 public class Officer extends Person {
 

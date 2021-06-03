@@ -1,8 +1,12 @@
+package chain_of_command;
+
 /*
 * Squadron class that contains an array of flights, array of officers, a chief and CO
 * 
 * @author: Andy Guo
 */
+
+import chain_of_command.*;
 
 public class Squadron {
     
