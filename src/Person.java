@@ -37,8 +37,6 @@ public class Person {
         this.setEmail(Integer.toString(idNum) + "@cadetmail.com");
     }
 
-    // Getters and setters
-
     /*
     * Returns the value of the int idNum
     *
@@ -48,6 +46,11 @@ public class Person {
         return idNum;
     }
 
+    /*
+    * Sets the value of idNum
+    * 
+    * @param idNum  The value that this.idNum will be set to
+    */
     public void setIdNum(int idNum) {
         this.idNum = idNum;
     }
@@ -61,6 +64,11 @@ public class Person {
         return rank;
     }
 
+    /*
+    * Sets the value of rank
+    * 
+    * @param rank  The value that this.rank will be set to
+    */
     public void setRank(String rank) {
         this.rank = rank;
     }
@@ -74,6 +82,11 @@ public class Person {
         return email;
     }
 
+    /*
+    * Sets the value of email
+    * 
+    * @param email  The value that this.email will be set to
+    */
     public void setEmail(String email) {
         this.email = email;
     }
@@ -87,6 +100,11 @@ public class Person {
         return password;
     }
 
+    /*
+    * Sets the value of password
+    * 
+    * @param password  The value that this.password will be set to
+    */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -100,6 +118,11 @@ public class Person {
         return name;
     }
 
+    /*
+    * Sets the value of name
+    * 
+    * @param name  The value that this.name will be set to
+    */
     public void setName(String name) {
 
         this.name = name;

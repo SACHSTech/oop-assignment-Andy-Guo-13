@@ -26,8 +26,6 @@ public class Officer extends Person {
         this.setRole("Officer");
     }
 
-    // Getters and setters
-
     /*
     * Returns the value of the int salary
     *
@@ -37,6 +35,11 @@ public class Officer extends Person {
         return salary;
     }
 
+    /*
+    * Sets the value of salary
+    * 
+    * @param salary  The value that this.salary will be set to
+    */
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -50,6 +53,11 @@ public class Officer extends Person {
         return role;
     }
 
+    /*
+    * Sets the value of role
+    * 
+    * @param role  The value that this.role will be set to
+    */
     public void setRole(String role) {
         this.role = role;
     }

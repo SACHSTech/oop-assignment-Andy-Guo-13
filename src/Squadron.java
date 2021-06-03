@@ -50,6 +50,11 @@ public class Squadron {
         return sqnNum;
     }
 
+    /*
+    * Sets the value of sqnNum
+    * 
+    * @param sqnNum  The value that this.sqnNum will be set to
+    */
     public void setSqnNum(int sqnNum) {
         this.sqnNum = sqnNum;
     }
@@ -63,6 +68,11 @@ public class Squadron {
         return sqnName;
     }
 
+    /*
+    * Sets the value of sqnName
+    * 
+    * @param sqnName  The value that this.sqnName will be set to
+    */
     public void setSqnName(String sqnName) {
         this.sqnName = sqnName;
     }
@@ -76,7 +86,13 @@ public class Squadron {
         return commandingOfficer;
     }
 
-    // Made modifications
+    /*
+    * Sets the value of commandingOfficer
+    * In addition, the role and email of the old commanding officer is changed
+    * The new commanding officer also gets their email and role modified
+    * 
+    * @param commandingOfficer  The value that this.commandingOfficer will be set to
+    */
     public void setCommandingOfficer(Officer commandingOfficer) {
         this.commandingOfficer.setEmail(Integer.toString(this.commandingOfficer.getIdNum()) + "@cadetmail.com");
         this.commandingOfficer.setRole("Officer");
@@ -96,6 +112,11 @@ public class Squadron {
         return officers;
     }
 
+    /*
+    * Sets the value of officers
+    * 
+    * @param officers  The value that this.officers will be set to
+    */
     public void setOfficers(Officer[] officers) {
         this.officers = officers;
     }
@@ -109,7 +130,13 @@ public class Squadron {
         return chief;
     }
 
-    // Made modifications
+    /*
+    * Sets the value of chief
+    * In addition, the role and email of the old chief is changed
+    * The new chief also gets their email and role modified
+    * 
+    * @param chief  The value that this.chief will be set to
+    */
     public void setChief(Cadet chief) {
         this.chief.setEmail(Integer.toString(this.chief.getIdNum()) + "@cadetmail.com");
         this.chief.setRole("Cadet");
@@ -129,11 +156,16 @@ public class Squadron {
         return flights;
     }
 
+    /*
+    * Sets the value of flights
+    * 
+    * @param flights  The value that this.flights will be set to
+    */
     public void setFlights(Flight[] flights) {
         this.flights = flights;
     }
 
-    
+
     // ToString method
     public String toString() {
         // Adding the name of the squadron to the string

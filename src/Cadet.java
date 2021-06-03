@@ -30,8 +30,6 @@ public class Cadet extends Person{
         // Evaluations are as follows: Leadership, drill, teaching, aviation
     }
 
-    // Getters and setters
-
     /*
     * Returns the array of char contained within evaluations[]
     *
@@ -41,6 +39,11 @@ public class Cadet extends Person{
         return evaluations;
     }
 
+    /*
+    * Sets the value of evaluations
+    * 
+    * @param evaluations  The value that this.evaluations will be set to
+    */
     public void setEvaluations(char[] evaluations) {
         this.evaluations = evaluations;
     }
@@ -54,6 +57,11 @@ public class Cadet extends Person{
         return role;
     }
 
+    /*
+    * Sets the value of role
+    * 
+    * @param role  The value that this.role will be set to
+    */
     public void setRole(String role) {
         this.role = role;
     }
@@ -67,6 +75,11 @@ public class Cadet extends Person{
         return summerTraining;
     }
 
+    /*
+    * Sets the value of summerTraining
+    * 
+    * @param summerTraining  The value that this.summerTraining will be set to
+    */
     public void setSummerTraining(String[] summerTraining) {
         this.summerTraining = summerTraining;
     }

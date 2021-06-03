@@ -27,8 +27,6 @@ public class Flight {
         this.flightCommander.setRole("Flight Commander");
     }
 
-    // Getters and setters
-
     /*
     * Returns the value of the string name
     *
@@ -38,6 +36,11 @@ public class Flight {
         return name;
     }
 
+    /*
+    * Sets the value of name
+    * 
+    * @param name  The value that this.name will be set to
+    */
     public void setName(String name) {
         this.name = name;
     }
@@ -51,7 +54,13 @@ public class Flight {
         return flightCommander;
     }
 
-    // Made modifications
+    /*
+    * Sets the value of flightCommander
+    * In addition, the role and email of the old flight commander is changed
+    * The new flight commander also gets their email and role modified
+    * 
+    * @param flightCommander  The value that this.flightCommander will be set to
+    */
     public void setFlightCommander(Cadet flightCommander) {
         this.flightCommander.setRole("Cadet");
         
@@ -69,6 +78,11 @@ public class Flight {
         return cadets;
     }
 
+    /*
+    * Sets the value of cadets
+    * 
+    * @param cadets  The value that this.cadets will be set to
+    */
     public void setCadets(Cadet[] cadets) {
         this.cadets = cadets;
     }
