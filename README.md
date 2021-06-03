@@ -42,3 +42,36 @@ Officers
 Mr. Fabroa's account type is an officer, so he can do everything listed above. As a side note, the chief warrant officer also has an officer type account, even though the chief is a cadet.
 
 If you decide to view information on the entire squadron (or as the program calls it, "print the squadron"), you can see everyone's ID, and role in the squadron, so you can use their ID and password ("pw") to login and explore as a flight commander or cadet.
+
+## Other useful information
+Air cadet squadrons in Canada have a number as well as a name (usually of an aicraft). For example:
+* 8 Globemaster
+* 778 Banshee
+* 351 Silver star
+
+The squadron I created has is called "ICS4U", which is the course code of our computer science class, and the squadron number 21 represents the year 2021 in which this course took place.
+
+Something else you might find useful is the ranks. There are 2 sets of ranks - cadet ranks, and officer ranks. Cadet ranks can be related to a NCM (non-commissioned member) rank (as cadets are not officially part of the military), but the officers that run cadet squadrons are very much real commissioned officers. In our program, the and officer ranks are the short form of the ranks. From lowest to highest, here are the cadet ranks:
+
+1. Cdt - Cadet: This is the lowest rank
+2. LAC - Leading Air Cadet: 6 months after joining cadets, your are elegible to be promoted to LAC
+3. Cpl - Corporal: after completing your first year of training, and at least 6 months as LAC, you can be promoted to Cpl
+4. FCpl - Flight Corporal: after completing your second year of training, and at least 6 months as Cpl, you can be promoted to FCpl. The CF equivalent of FCpl would be MCpl (master corporal)
+5. Sgt - Sergeant: after completing your third year of training, and at least 6 months as FCpl, you are elegible for promotion to Sgt. You must also be recommended by an officer for this promotion.
+6. FSgt - Flight Sergeant: after completing your fourth year of training, and at least 6 months as Sgt, you are elegible for promotion to FSgt. You must also be recommended by an officer for this promotion. FSgt's usually become flight commanders. There is no CF equivalent to FSgt (there is no master sergeant); the closest rank would be warrant officer (WO).
+7. WO2 - Warrant Officer Second Class: The first rank where you are addressed as "sir" or "ma'am". From WO2 upwards (including all officer ranks), you address the person as "sir"/"ma'am". You must have been FSgt for at least 6 months, recommended by an officer, and pass a merit review board (which includes a file review and a physical interview). The CF equivalent to WO2 would be master warrant officer (MWO).
+8. WO1 - Warrant Officer First Class: The final rank a cadet can achieve. You must have been a WO2 for at least 6 months, recommended by an officer, and gone through a merit review board. WO1 is particularly difficult to achieve as generally, each squadron only has one of them. WO1's generally are the chief warrant officer of the squadron. The CF equivalent to WO1 would be CWO (chief warrant officer) as a rank, rather than a position of power.
+
+I'm not 100% sure how officers work, but I know their ranks from bottom to top. Officers automatically outrank any NCM or cadet, and are all addressed as "sir"/"ma'am". With the exception of OCdt, all other officers must be saluted (assuming you have the correct headdress). Here they are:
+
+1. OCdt - Officer Cadet
+2. 2Lt - Second Lieutenant (pronounced "Left-tenant")
+3. Lt - Lieutenant
+4. Capt - Captain (usually the CO of a smaller cadet squadron)
+5. Maj - Major (usually the CO of a larger cadet squadron)
+6. LCol - Lieutenant Colonel ("Left-tenant kernal")
+7. Col - Colonel
+8. BGen - Brigadier-General
+9. MGen - Major-General
+10. LGen - Lieutenant-General
+11. Gen - General
