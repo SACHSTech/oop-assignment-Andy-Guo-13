@@ -21,6 +21,12 @@ public class Flight {
     }
 
     // Getters and setters
+
+    /*
+    * Returns the value of the string name
+    *
+    * @return the value of name
+    */
     public String getName() {
         return name;
     }
@@ -29,6 +35,11 @@ public class Flight {
         this.name = name;
     }
 
+    /*
+    * Returns the Cadet object flightCommander
+    *
+    * @return the Cadet object flightCommander
+    */
     public Cadet getFlightCommander() {
         return flightCommander;
     }
@@ -42,6 +53,11 @@ public class Flight {
         this.flightCommander.setRole("Flight Commander");
     }
 
+    /*
+    * Returns the array of Cadet contained within cadets[]
+    *
+    * @return the Cadet array cadets[]
+    */
     public Cadet[] getCadets() {
         return cadets;
     }

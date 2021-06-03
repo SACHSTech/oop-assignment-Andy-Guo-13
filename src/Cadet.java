@@ -25,6 +25,12 @@ public class Cadet extends Person{
     }
 
     // Getters and setters
+
+    /*
+    * Returns the array of char contained within evaluations[]
+    *
+    * @return the char array evaluations[]
+    */
     public char[] getEvaluations() {
         return evaluations;
     }
@@ -33,6 +39,11 @@ public class Cadet extends Person{
         this.evaluations = evaluations;
     }
 
+    /*
+    * Returns the value of the string role
+    *
+    * @return the value of role
+    */
     public String getRole() {
         return role;
     }
@@ -41,6 +52,11 @@ public class Cadet extends Person{
         this.role = role;
     }
 
+    /*
+    * Returns the array of string contained within summerTraining[]
+    *
+    * @return the string array summerTraining[]
+    */
     public String[] getSummerTraining() {
         return summerTraining;
     }

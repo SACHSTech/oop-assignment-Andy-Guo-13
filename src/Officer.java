@@ -20,6 +20,12 @@ public class Officer extends Person {
     }
 
     // Getters and setters
+
+    /*
+    * Returns the value of the int salary
+    *
+    * @return the value of salary
+    */
     public int getSalary() {
         return salary;
     }
@@ -28,6 +34,11 @@ public class Officer extends Person {
         this.salary = salary;
     }
 
+    /*
+    * Returns the value of the string role
+    *
+    * @return the value of role
+    */
     public String getRole() {
         return role;
     }

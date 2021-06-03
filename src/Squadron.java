@@ -14,7 +14,16 @@ public class Squadron {
     private Officer[] officers;
     private Officer commandingOfficer;
 
-    // Constructor
+    /*
+    * Constructor - creates new instance of a Squadron object
+    * 
+    * @param sqnNum  The number of the squadron
+    * @param sqnName  The name of the squadron
+    * @param flights[]  An array containing all the flights
+    * @param chief  A cadet object that represents the CWO of the squadron
+    * @param officers[]  An array containing all the officers
+    * @param commandingOfficer  An officer object representing the CO of the squadron
+    */
     public Squadron(int sqnNum, String sqnName, Flight[] flights, Cadet chief, Officer[] officers, Officer commandingOfficer) {
         this.setSqnNum(sqnNum);
         this.setSqnName(sqnName);
@@ -32,7 +41,11 @@ public class Squadron {
         this.commandingOfficer.setEmail("co." + Integer.toString(this.sqnNum) + this.sqnName.toLowerCase() + "@cadetmail.com");
     }
 
-    // Getters and setters
+    /*
+    * Returns the value of the integer sqnNum
+    *
+    * @return the value of sqnNum
+    */
     public int getSqnNum() {
         return sqnNum;
     }
@@ -41,6 +54,11 @@ public class Squadron {
         this.sqnNum = sqnNum;
     }
 
+    /*
+    * Returns the value of the string sqnName
+    *
+    * @return the value of sqnName
+    */
     public String getSqnName() {
         return sqnName;
     }
@@ -49,6 +67,11 @@ public class Squadron {
         this.sqnName = sqnName;
     }
 
+    /*
+    * Returns the Officer object commandingOfficer
+    *
+    * @return the Officer object commandingOfficer
+    */
     public Officer getCommandingOfficer() {
         return commandingOfficer;
     }
@@ -64,6 +87,11 @@ public class Squadron {
         this.commandingOfficer.setRole("Commanding Officer");
     }
 
+    /*
+    * Returns the array of Officers contained within officers[]
+    *
+    * @return the Officer array officers[]
+    */
     public Officer[] getOfficers() {
         return officers;
     }
@@ -72,6 +100,11 @@ public class Squadron {
         this.officers = officers;
     }
 
+    /*
+    * Returns the Cadet object chief
+    *
+    * @return the Cadet object chief
+    */
     public Cadet getChief() {
         return chief;
     }
@@ -87,6 +120,11 @@ public class Squadron {
         this.chief.setRole("Commanding Officer");
     }
 
+    /*
+    * Returns the array of Flight contained within flights[]
+    *
+    * @return the Flight array flights[]
+    */
     public Flight[] getFlights() {
         return flights;
     }
@@ -95,6 +133,7 @@ public class Squadron {
         this.flights = flights;
     }
 
+    
     // ToString method
     public String toString() {
         // Adding the name of the squadron to the string

@@ -32,6 +32,12 @@ public class Person {
     }
 
     // Getters and setters
+
+    /*
+    * Returns the value of the int idNum
+    *
+    * @return the value of idNum
+    */
     public int getIdNum() {
         return idNum;
     }
@@ -40,6 +46,11 @@ public class Person {
         this.idNum = idNum;
     }
 
+    /*
+    * Returns the value of the string rank
+    *
+    * @return the value of rank
+    */
     public String getRank() {
         return rank;
     }
@@ -48,6 +59,11 @@ public class Person {
         this.rank = rank;
     }
 
+    /*
+    * Returns the value of the string email
+    *
+    * @return the value of email
+    */
     public String getEmail() {
         return email;
     }
@@ -56,6 +72,11 @@ public class Person {
         this.email = email;
     }
 
+    /*
+    * Returns the value of the string password
+    *
+    * @return the value of password
+    */
     public String getPassword() {
         return password;
     }
@@ -64,6 +85,11 @@ public class Person {
         this.password = password;
     }
 
+    /*
+    * Returns the value of the string name
+    *
+    * @return the value of name
+    */
     public String getName() {
         return name;
     }
